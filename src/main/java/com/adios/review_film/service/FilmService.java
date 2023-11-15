@@ -1,7 +1,6 @@
 package com.adios.review_film.service;
 
 import com.adios.review_film.dto.request.NewFilmRequest;
-import com.adios.review_film.dto.request.SearchFilmRequest;
 import com.adios.review_film.dto.request.UpdateFilmRequest;
 import com.adios.review_film.dto.response.FilmResponse;
 import com.adios.review_film.entity.Film;

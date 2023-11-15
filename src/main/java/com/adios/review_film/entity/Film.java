@@ -23,7 +23,7 @@ public class Film {
     @GenericGenerator(name = "uuid", strategy = "uuid")
     @GeneratedValue(generator = "uuid")
     private String id;
-    @Column
+    @Column(unique = true)
     private String name;
     @Column(name = "release_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

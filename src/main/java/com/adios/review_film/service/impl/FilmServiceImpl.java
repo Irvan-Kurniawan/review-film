@@ -28,12 +28,16 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public FilmResponse createFilm(NewFilmRequest newFilmRequest) {
         validationUtil.validate(newFilmRequest);
-        Film film = Film.builder()
-                .name(newFilmRequest.getName())
-                .releaseDate(newFilmRequest.getReleaseDate())
-                .build();
-        filmRepository.saveAndFlush(film);
-        return getFilmResponse(film);
+        try {
+            Film film = Film.builder()
+                    .name(newFilmRequest.getName())
+                    .releaseDate(newFilmRequest.getReleaseDate())
+                    .build();
+            filmRepository.saveAndFlush(film);
+            return getFilmResponse(film);
+        } catch (DataIntegrityViolationException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Film already exist");
+        }
     }
 
     @Transactional(rollbackFor = Exception.class)
