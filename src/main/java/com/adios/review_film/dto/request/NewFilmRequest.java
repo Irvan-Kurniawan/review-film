@@ -16,9 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateFilmRequest {
-    @NotBlank(message = "Film ID must not be empty")
-    private String id;
+public class NewFilmRequest {
     @NotBlank(message = "Film Name must not be empty")
     private String name;
     @NotNull(message = "Release Date must not be empty")

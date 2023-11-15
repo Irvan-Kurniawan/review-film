@@ -1,4 +1,4 @@
-package com.enigma.tokonyadia_api.dto.request;
+package com.adios.review_film.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SearchSellerRequest {
+public class SearchFilmRequest {
     private Integer page;
     private Integer size;
     private String direction;
     private String sortBy;
+    private String name;
 }

@@ -1,13 +1,13 @@
-package com.adios.review_film.dto.request;
+package com.adios.review_film.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -16,12 +16,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateFilmRequest {
-    @NotBlank(message = "Film ID must not be empty")
+@Entity
+@Table(name = "m_film")
+public class Film {
+    @Id
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GeneratedValue(generator = "uuid")
     private String id;
-    @NotBlank(message = "Film Name must not be empty")
+    @Column
     private String name;
-    @NotNull(message = "Release Date must not be empty")
+    @Column(name = "release_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
 }
