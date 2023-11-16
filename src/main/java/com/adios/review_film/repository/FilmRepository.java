@@ -9,7 +9,7 @@ public interface FilmRepository{
     Film update(Film film);
     void delete(Film film);
     List<Film> findAll();
-    Film findById(String s);
+    Film findById(String id);
     List<Film> findByName(String name);
 
 }

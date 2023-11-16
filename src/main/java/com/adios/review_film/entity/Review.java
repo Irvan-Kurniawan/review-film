@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +27,7 @@ public class Review {
     @JoinColumn(name = "film_id")
     private Film film;
     @Column(name = "review_date")
-    private LocalDateTime reviewDate;
+    private LocalDate reviewDate;
     @Column
     private String review;
 }
