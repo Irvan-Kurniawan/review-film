@@ -1,10 +1,14 @@
 package com.adios.review_film.repository;
 
 import com.adios.review_film.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import java.util.List;
 
-public interface UserRepository extends JpaRepository<User,String> {
-    Optional<User> findByName(String name);
+public interface UserRepository {
+    User saveAndFlush(User user);
+    User update(User user);
+    void delete(User user);
+    List<User> findAll();
+    User findById(String s);
+    List<User> findByName(String name);
 }
